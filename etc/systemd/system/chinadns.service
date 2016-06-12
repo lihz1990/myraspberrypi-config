@@ -1,0 +1,13 @@
+[Unit]
+Description=chinadns you known
+Wants=network.target network-online.target networking.service
+
+[Service]
+Type=simple
+ExecStart=/opt/chinadns/bin/chinadns -m -c  /opt/chinadns/share/chnroute.txt -p 15353
+StandardOutput=syslog
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target 
+

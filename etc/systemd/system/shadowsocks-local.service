@@ -1,0 +1,13 @@
+[Unit]
+Description=shadowsocks local
+Wants=network.target network-online.target networking.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ss-local -v -c /etc/shadowsocks.conf -l 1083
+StandardOutput=syslog
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target 
+
